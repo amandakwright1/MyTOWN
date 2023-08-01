@@ -1,3 +1,5 @@
+using MyTOWN.Repositories;
+
 namespace MyTOWN
 {
     public class Program
@@ -5,6 +7,8 @@ namespace MyTOWN
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddTransient<IEventRepository, EventRepository>();
 
             // Add services to the container.
 
