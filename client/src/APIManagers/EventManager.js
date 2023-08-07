@@ -9,8 +9,8 @@ export const getAllEvents = () => {
 };
 
 //grabs a single event id instead of all the events like above.
-export const getEventById = (eventId) => {
-  return fetch(`${baseUrl}/${eventId}`)
+export const getEventById = (eventsId) => {
+  return fetch(`${baseUrl}/${eventsId}`)
     .then((res) => res.json())
 }
 
@@ -26,13 +26,19 @@ export const addEvent = (singleEvent) => {
 };
 
 
-export const editEvent = (event) => {
-  return fetch(`${baseUrl}/${event.id}`, {
+export const editEvent = (eventOBJ) => {
+  return fetch(`${baseUrl}/${eventOBJ.Id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(event),
+    body: JSON.stringify(eventOBJ),
   })
   .then(() => getAllEvents());
+}
+
+export const deleteEvent = (eventId) => {
+  return fetch(`${baseUrl}/${eventId}`, {
+    method: "DELETE",
+  })
 }

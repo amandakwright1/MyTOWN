@@ -28,6 +28,7 @@ const EventList = () => {
       {events.map((event) => {
         return <Events key={events.id} events={event} />
          
+        
          
       })}
     </div>
@@ -35,7 +36,8 @@ const EventList = () => {
     <Button color="info" onClick={create}>
       Create Event
     </Button>
-  </div></>
+  </div>
+  </>
   );
 };
 

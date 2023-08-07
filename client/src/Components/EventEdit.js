@@ -1,36 +1,69 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getEventById, editEvent } from "./Managers/EventManager";
-import { Button } from "reactstrap";
+import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { getEventById, editEvent } from "../APIManagers/EventManager";
+// import { CategoryContext } from "../../Managers/CategoryManager";
+// import { Button, } from "reactstrap";
 
-export const EditEvent = () => {
-    const [event, update] = useState({
-        Date: "",
-        Time: "",
-        Description: "",
-        Address: "",
-        Contact: "",
+
+
+
+ const EditEvent = () => {
+    const { eventsId } = useParams();
+    const navigate = useNavigate();
+
+
+ const [editedEvent, setEditedEvent] = useState({
+        date: "",
+        time: "",
+        description: "",
+        address: "",
+        contact: "",
         userProfileId: 1,
     })
 
-    const { eventId } = useParams();
-    const navigate = useNavigate();
+   
 
     useEffect(() => {
-        getEventById(eventId)
+        getEventById(eventsId)
             .then((eventArray) => {
-                update(eventArray)
-            })
-    }, []);
+            //    console.log(eventArray)
+                setEditedEvent(eventArray)
+            }
+            );
+        }, [eventsId])
+        if (!editedEvent) {
+            return null;
+        }
+
+        const handleSaveButtonClick = (e) => {
+            e.preventDefault()
+            
+    const eventToEdit = {
+        Id: parseInt(eventsId),
+        Date: editedEvent.date,
+        Time: editedEvent.time,
+        Description: editedEvent.description,
+        Address: editedEvent.address,
+        Contact: editedEvent.contact,
+        UserProfileId: 1,
+    }
+
+    return editEvent(eventToEdit)
+    .then(() => {
+        navigate(`/`)
+    })
+}
+
 
     //makes sure the new updates are saved and takes user back to event list.
-    const handleSaveButtonClick = (e) => {
-        e.preventDefault()
-        editEvent(event)
-        .then(() => {
-            navigate("/event")
-        })
-    }
+    // const handleSaveButtonClick = (event) => {
+    //     event.preventDefault()
+    //     editEvent()
+    //     .then(() => {
+    //         navigate("/")
+    //     })
+    // }
 
     return (
         <form className="edit-form">
@@ -38,31 +71,33 @@ export const EditEvent = () => {
             <fieldset>
                     <div className="form-group">
                         <label htmlFor="date">Date:</label>
-                        <input
-                            type="text"
-                            id="date"
-                            value={event.Date}
-                            onChange={
-                                (e) => {
-                                    const copy = { ...event }
-                                    copy.Date = e.target.value
-                                    update(copy)
-                                }
-                            } />
+                        <Input
+                        className="edit-input"
+                        type="text"
+                        id="date"
+                        value={editedEvent.date}
+                           onChange={(evt) => {
+                            const copy = { ...editedEvent }
+                            copy.date = evt.target.value
+                            setEditedEvent(copy)
+                           }}
+                           
+                           
+                             />
                     </div>
             </fieldset>
             <fieldset>
                     <div className="form-group">
                         <label htmlFor="time">Time:</label>
-                        <input
+                        <Input
                             type="text"
                             id="time"
-                            value={event.Time}
+                            value={editedEvent.time}
                             onChange={
-                                (e) => {
-                                    const copy = { ...event }
-                                    copy.Name = e.target.value
-                                    update(copy)
+                                (evt) => {
+                                    const copy = { ...editedEvent }
+                                    copy.time = evt.target.value
+                                    setEditedEvent(copy)
                                 }
                             } />
                     </div>
@@ -70,15 +105,15 @@ export const EditEvent = () => {
             <fieldset>
                     <div className="form-group">
                         <label htmlFor="description">Description:</label>
-                        <input
+                        <Input
                             type="text"
                             id="description"
-                            value={event.Description}
+                            value={editedEvent.description}
                             onChange={
-                                (e) => {
-                                    const copy = { ...event }
-                                    copy.Description = e.target.value
-                                    update(copy)
+                                (evt) => {
+                                    const copy = { ...editedEvent }
+                                    copy.description = evt.target.value
+                                    setEditedEvent(copy)
                                 }
                             } />
                     </div>
@@ -86,15 +121,15 @@ export const EditEvent = () => {
             <fieldset>
                     <div className="form-group">
                         <label htmlFor="address">Address:</label>
-                        <input
+                        <Input
                             type="text"
                             id="address"
-                            value={event.Address}
+                            value={editedEvent.address}
                             onChange={
-                                (e) => {
-                                    const copy = { ...event }
-                                    copy.Address = e.target.value
-                                    update(copy)
+                                (evt) => {
+                                    const copy = { ...editedEvent }
+                                    copy.address = evt.target.value
+                                    setEditedEvent(copy)
                                 }
                             } />
                     </div>
@@ -105,12 +140,12 @@ export const EditEvent = () => {
                         <input
                             type="text"
                             id="contact"
-                            value={event.Contact}
+                            value={editedEvent.contact}
                             onChange={
-                                (e) => {
-                                    const copy = { ...event }
-                                    copy. Contact = e.target.value
-                                    update(copy)
+                                (evt) => {
+                                    const copy = { ...editedEvent }
+                                    copy.contact = evt.target.value
+                                    setEditedEvent(copy)
                                 }
                             } />
                     </div>
@@ -122,3 +157,125 @@ export const EditEvent = () => {
     );
 };
 export default EditEvent;
+
+
+
+// const EditEventForm = () => {
+//     const { updateEvent, getEventById } = useContext(CategoryContext);
+//     const [event, setEvent] = useState({ //setEvent was update on mine.
+//         Date: "",
+//         Time: "",
+//         Description: "",
+//         Address: "",
+//         Contact: "",
+//         userProfileId: 1,
+    
+//     });
+
+//     const { eventId } = useParams();
+//     const navigate = useNavigate();
+
+//     useEffect(() => {
+//         getEventById(eventId)
+//         .then(responseEvent => {
+//             if(responseEvent) {
+//                 setEvent(responseEvent);
+//             } else {
+//                 setEvent({
+//                     Date: "",
+//                     Time: "",
+//                     Description: "",
+//                     Address: "",
+//                     Contact: "",
+//                     userProfileId: 1,
+//                 });
+//             }
+//         });
+//     }, []);
+    
+
+//     const handleSubmit = (e) => {
+//         e.preventDefault();
+
+//         const editedEvent = {
+//             Date: event.Date,
+//             Time: event.Time,
+//             Description: event.Description,
+//             Address: event.Address,
+//             Contact: event.Contact,
+//             userProfileId: 1,
+//         };
+
+//         updateEvent(editedEvent).then(() => {
+//             navigate("/categories");
+//         });
+//     };
+
+//     const handleFieldChange = evt => {
+//         const stateToChange = { ...event };
+//         stateToChange[evt.target.id] = evt.target.value;
+//         setEvent(stateToChange);
+//     }
+
+//     const handleCancel = () => {
+//         navigate("/");
+//     }
+
+//     return (
+//         <Form onSubmit={handleSubmit}>
+//             <h2 className="edit-form-name">Edit your Event</h2>
+//             <fieldset>
+//             <label htmlFor="date">Date:</label>
+//                         <Input
+//                             type="text"
+//                             id="date"
+//                           onChange={handleFieldChange}
+//                            value={event.Date} required/>
+                                
+//             </fieldset>
+//             <fieldset>
+//                     <div className="form-group">
+//                     <label htmlFor="time">Time:</label>
+//                         <Input
+//                             type="text"
+//                             id="time"
+//                           onChange={handleFieldChange}
+//                            value={event.Time} required/>
+//                     </div>
+//             </fieldset>
+//             <fieldset>
+//                     <div className="form-group">
+//                     <label htmlFor="description">Description:</label>
+//                         <Input
+//                             type="text"
+//                             id="description"
+//                           onChange={handleFieldChange}
+//                            value={event.Description} required/>
+//                     </div>
+//             </fieldset>
+//             <fieldset>
+//                     <div className="form-group">
+//                     <label htmlFor="address">Address:</label>
+//                         <Input
+//                             type="text"
+//                             id="address"
+//                           onChange={handleFieldChange}
+//                            value={event.Address} required/>
+//                     </div>
+//             </fieldset>
+//             <fieldset>
+//                     <div className="form-group">
+//                     <label htmlFor="contact">Contact:</label>
+//                         <Input
+//                             type="text"
+//                             id="contact"
+//                           onChange={handleFieldChange}
+//                            value={event.Contact} required/>
+//                     </div>
+//             </fieldset>
+           
+//             <button
+//             onClick={(clickEvent) => handleSaveButtonClick(clickEvent)} className="btn btn-primary">Save</button>
+//         </Form>
+//     )}
+// export default EditEventForm;
