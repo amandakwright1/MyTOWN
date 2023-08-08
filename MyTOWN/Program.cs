@@ -9,6 +9,7 @@ namespace MyTOWN
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddTransient<IEventRepository, EventRepository>();
+            builder.Services.AddTransient<ILocationRepository, LocationRepository>();
 
             // Add services to the container.
 

@@ -12,6 +12,24 @@ const Header = () => {
           <Link to="/" className="nav-link">
             Events
           </Link>
+        </li>  <li className="nav-item">
+          <Link to="/locations" className="nav-link">
+            Parks
+          </Link>
+        </li>  <li className="nav-item">
+          <Link to="/locations" className="nav-link">
+            Restaurants
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/locations" className="nav-link">
+            Shops
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/locations" className="nav-link">
+            Churches
+          </Link>
         </li>
         {/* <li className="nav-item">
           <Link to="/events/add" className="nav-link">
