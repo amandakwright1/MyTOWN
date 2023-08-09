@@ -13,21 +13,21 @@ const Header = () => {
             Events
           </Link>
         </li>  <li className="nav-item">
-          <Link to="/locations" className="nav-link">
+          <Link to="/parks" className="nav-link">
             Parks
           </Link>
         </li>  <li className="nav-item">
-          <Link to="/locations" className="nav-link">
+          <Link to="/restaurants" className="nav-link">
             Restaurants
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/locations" className="nav-link">
+          <Link to="/shops" className="nav-link">
             Shops
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/locations" className="nav-link">
+          <Link to="/churches" className="nav-link">
             Churches
           </Link>
         </li>

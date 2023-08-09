@@ -20,7 +20,10 @@ return (
 
       <Route path="/events/edit/:eventsId" element={<EditEvent />} />
 
-      <Route path="/locations" element= {<LocationList />} />
+      <Route path="/parks" element= {<LocationList LocationId={1}/>} />
+      <Route path="/restaurants" element= {<LocationList LocationId={2}/>} />
+      <Route path="/shops" element= {<LocationList LocationId={3} />} />
+      <Route path="/churches" element= {<LocationList  LocationId={4}/>} />
                 
       
      
