@@ -22,7 +22,8 @@ namespace MyTOWN.Repositories
                 {
                     cmd.CommandText = @"
                           SELECT Id, Date, Time, Description, Address, Contact, UserProfileId
-                            FROM Events";
+                            FROM Events
+                            Order BY Date";
 
                     var reader = cmd.ExecuteReader();
 
