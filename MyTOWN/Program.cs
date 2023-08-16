@@ -10,6 +10,7 @@ namespace MyTOWN
 
             builder.Services.AddTransient<IEventRepository, EventRepository>();
             builder.Services.AddTransient<ILocationRepository, LocationRepository>();
+            builder.Services.AddTransient<IUserProfileRepository, UserProfileRepository>();
 
             // Add services to the container.
 
@@ -25,6 +26,14 @@ namespace MyTOWN
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+
+
+                app.UseCors(options =>
+                {
+                    options.AllowAnyOrigin();
+                    options.AllowAnyMethod();
+                    options.AllowAnyHeader();
+                });
             }
 
             app.UseHttpsRedirection();

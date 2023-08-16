@@ -4,6 +4,7 @@ import { EventForm }  from "./EventForm";
 import EditEvent from "./EventEdit";
 import { DeleteEvent } from "./EventDelete";
 import LocationList from "./Location/LocationList";
+import Login from "./Login/Login";
 
 // import PostDetails from "./PostDetails"; leaving this here in case I decide to make eventdetails
 
@@ -11,8 +12,8 @@ const ApplicationViews = () => {
 
 return (
      <Routes>
-     
-        <Route path="/" element= {<EventList />} />
+         {/* <Route path="/login" element={Login } /> */}
+        <Route exact path="/" element= {<EventList />} />
         
         <Route path="/events/add" element={<EventForm />} />
         

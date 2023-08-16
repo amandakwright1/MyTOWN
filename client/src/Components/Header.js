@@ -31,6 +31,11 @@ const Header = () => {
             Churches
           </Link>
         </li>
+        <li className="nav-item">
+          <Link to="/login" className="nav-link">
+            Logout
+          </Link>
+        </li>
         {/* <li className="nav-item">
           <Link to="/events/add" className="nav-link">
             New Event
