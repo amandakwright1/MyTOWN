@@ -10,22 +10,24 @@ export const Events = ({ events }) => {
   const navigate = useNavigate();
 
   return (
-    <Card className="m-4">
-      <p className="text-left px-2"> Date: {events.date}</p>
-      <CardBody>
-        <p>
-          {/* <Link to={`/events/${events.id}`}> can use this to link to a details type page later if wanted.*/}
-          <>{events.description}</>
-          {/* </Link> */}
-        </p>
-        <p>{events.time}</p>
-        <p>{events.address}</p>
-        <p>{events.contact}</p>
+    <div className="events-container">
+       <Card style={{ width: '200px', margin: '10px' }}>
+       <CardBody>
+      <h1 className="text-left px-2"> Date: {events.date}</h1>
+      
+        
+         
+          <p style={{ fontSize: '1.2rem', marginBottom: '8px' }}>{events.description}</p>
+        
+        
+        <p style={{ fontSize: '0.9rem', marginBottom: '4px' }}>{events.time}</p>
+        <p style={{ fontSize: '0.9rem', marginBottom: '4px' }}>{events.address}</p>
+        <p style={{ fontSize: '0.9rem', marginBottom: '4px' }}>{events.contact}</p>
       </CardBody>
       <br></br>
   <div>
   <Button
-            color="info"
+            color="success"
             type="edit"
             onClick={() => navigate(`/events/edit/${events.id}`)}
             >
@@ -42,5 +44,7 @@ export const Events = ({ events }) => {
               </Button>
   
     </Card>
+    
+    </div>
   );
-};
+  }

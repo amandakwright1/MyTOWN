@@ -3,6 +3,8 @@ import { getAllEvents } from "../APIManagers/EventManager";
 import { Events } from "./Events";
 import { Button } from "reactstrap";
 import { useNavigate } from "react-router-dom";
+import {Container, Row, Col } from "reactstrap";
+
 
 const EventList = () => {
   const [events, setEvents] = useState([]);
@@ -24,16 +26,19 @@ const EventList = () => {
 
   return (  
     <>
-    <div>
+    <Container>
+    <Row>
       {events.map((event) => {
-        return <Events key={events.id} events={event} />
+        return <Col><Events key={events.id} events={event} /></Col>
          
         
          
       })}
-    </div>
+</Row>
+      </Container>
+    
     <div>
-    <Button color="info" onClick={create}>
+    <Button color="success" onClick={create}>
       Create Event
     </Button>
   </div>
