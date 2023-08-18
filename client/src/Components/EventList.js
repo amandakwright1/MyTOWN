@@ -26,6 +26,13 @@ const EventList = () => {
 
   return (  
     <>
+    <p></p>
+       <div className="add-button">
+      
+    <Button color="success" onClick={create}>
+      Add Event
+    </Button>
+  </div>
     <Container>
     <Row>
       {events.map((event) => {
@@ -37,11 +44,11 @@ const EventList = () => {
 </Row>
       </Container>
     
-    <div>
+    {/* <div>
     <Button color="success" onClick={create}>
-      Create Event
+      Add Event
     </Button>
-  </div>
+  </div> */}
   </>
   );
 };

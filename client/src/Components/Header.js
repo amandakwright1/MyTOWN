@@ -52,7 +52,7 @@ const Header = () => {
 
 export const MyLogo =()=> {
 
-  return <img className="logo" src="/MyTOWNicon.jpg" alt="logo" />
+  return <img className="logo" src="/Logo3.jpg" alt="logo" />
       
 
    
