@@ -9,15 +9,19 @@ export const Events = ({ events }) => {
 
   const navigate = useNavigate();
 
+
+
   return (
+  <>
     <div className="events-container">
+   
        <Card style={{ width: '200px', margin: '10px' }}>
        <CardBody>
       <h1 className="text-left px-2"> Date: {events.date}</h1>
       
         
          
-          <p style={{ fontSize: '1.2rem', marginBottom: '8px' }}>{events.description}</p>
+          <p style={{ fontSize: '0.9rem', marginBottom: '4px' }}>{events.description}</p>
         
         
         <p style={{ fontSize: '0.9rem', marginBottom: '4px' }}>{events.time}</p>
@@ -44,7 +48,11 @@ export const Events = ({ events }) => {
               </Button>
   
     </Card>
-    
+  
     </div>
+    
+   
+    </>
   );
   }
+ 

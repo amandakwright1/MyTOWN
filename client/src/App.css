@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #d1b094;
 }
 
 .App-logo {
@@ -7,9 +8,7 @@
   pointer-events: none;
 }
 
-.navbar {
-  background-color: #e455c1;
-}
+
 
 
 

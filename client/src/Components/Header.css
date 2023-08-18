@@ -1,8 +1,16 @@
 .navbar {
     background-color: teal;
+   
 }
 
 .nav-item{
-    text-align: right;
+  
     font-weight: bolder;
 }
+
+.logo{
+    
+    width: 50%;
+  
+}
+
