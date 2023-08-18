@@ -2,6 +2,7 @@ import { useState } from "react"
 import { addEvent } from "../APIManagers/EventManager";
 import { useNavigate } from "react-router-dom";
 
+
  export const EventForm = () => {
 
     const [newEvent, update] = useState({

@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Header.css"
+
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand navbar-dark bg-info">
-      <Link to="/" className="navbar-brand">
-       MyTOWN
+    <nav className="navbar navbar-expand navbar-info justify-content-center">
+      <Link to="/login" className="navbar-brand">
+      <div class="logo">
+       <MyLogo/>
+       </div>
       </Link>
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
@@ -45,5 +49,17 @@ const Header = () => {
     </nav>
   );
 };
+
+export const MyLogo =()=> {
+
+  return <img className="logo" src="/Logo3.jpg" alt="logo" />
+      
+
+   
+}    
+
+
+
+
 
 export default Header;
