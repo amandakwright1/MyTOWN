@@ -15,7 +15,7 @@ export const Events = ({ events }) => {
   <>
     <div className="events-container">
    
-       <Card style={{ width: '200px', margin: '10px' }}>
+       <Card style={{ width: '400px', height: '450px', margin: '10px' }}>
        <CardBody>
       <h1 className="text-left px-2">{events.date}</h1>
       

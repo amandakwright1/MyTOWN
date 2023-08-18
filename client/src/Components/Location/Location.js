@@ -9,8 +9,10 @@ import { Button } from "reactstrap";
 
 export const Location = ({ location }) => {
   return (
+    <p>
+    <p>
     <div className="card-container">
-      <Card style={{ width: '200px', margin: '10px' }}>
+      <Card style={{ width: '200px', height: '450px', margin: '10px' }}>
         <CardImg top src={location.imageUrl} alt={location.name} style={{ height: '150px', objectFit: 'cover' }} />
         <CardBody>
           <h1 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>{location.name}</h1>
@@ -20,6 +22,8 @@ export const Location = ({ location }) => {
         </CardBody>
       </Card>
     </div>
+    </p>
+    </p>
   );
 };
 

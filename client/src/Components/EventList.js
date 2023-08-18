@@ -34,7 +34,7 @@ const EventList = () => {
     </Button>
   </div>
     <Container>
-    <Row>
+    <Row sm = "3">
       {events.map((event) => {
         return <Col><Events key={events.id} events={event} /></Col>
          
@@ -44,11 +44,7 @@ const EventList = () => {
 </Row>
       </Container>
     
-    {/* <div>
-    <Button color="success" onClick={create}>
-      Add Event
-    </Button>
-  </div> */}
+   
   </>
   );
 };

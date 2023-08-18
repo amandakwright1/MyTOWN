@@ -3,6 +3,7 @@ import { getAllLocations } from "../../APIManagers/LocationManager";
 import { Location } from "./Location";
 import { useNavigate } from "react-router-dom";
 import {Container, Row, Col } from "reactstrap";
+import "./Location.css"
 
 const LocationList = ({ LocationId }) => {
   const [location, setLocation] = useState([]);
@@ -26,8 +27,8 @@ const LocationList = ({ LocationId }) => {
   return (  
     <>
     
-    <Container>
-      <Row>
+    <Container >
+      <Row className= "box">
       {location.map((event) => {
         return <Col><Location key={location.id} location={event} /></Col>
      

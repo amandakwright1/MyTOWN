@@ -2,6 +2,9 @@
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    margin: -10px; /* To offset the margin of individual cards */
+    margin: -10px; 
+    
   }
+
+
   
